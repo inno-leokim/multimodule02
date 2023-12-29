@@ -1,0 +1,11 @@
+plugins {
+
+}
+
+dependencies {
+    // module-common과의 의존성 관계
+    // root에 있는 settings.gradle에 명시된 이름과 같아야한다.
+	implementation project(':module-common') 
+}
+
+// settings.gradle은 root에만 있으면 되므로 삭제해도 된다.
