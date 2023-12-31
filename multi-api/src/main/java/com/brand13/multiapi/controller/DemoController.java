@@ -6,6 +6,8 @@ import com.brand13.multiapi.service.DemoService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -23,6 +25,11 @@ public class DemoController {
     @GetMapping("/find")
     public String find() {
         return demoService.find();
+    }
+    
+    @GetMapping("/exception")
+    public String exception() {
+        return demoService.exception();
     }
     
 }
