@@ -2,6 +2,8 @@ package com.brand13;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * 매우 중요!!
@@ -15,6 +17,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 아래와 같이 스캔하고자 하는 프로젝트를 
  * scanBasePackages안에 배열형태로 명시한다!!
  */
+@EntityScan("com.brand13.modulecommon.domain")
+@EnableJpaRepositories(
+	basePackages = "com.brand13.modulecommon.repository"
+)
 @SpringBootApplication(
 	scanBasePackages = {
 		"com.brand13.multiapi",

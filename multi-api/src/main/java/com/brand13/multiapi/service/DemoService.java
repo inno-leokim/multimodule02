@@ -1,5 +1,6 @@
 package com.brand13.multiapi.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.brand13.modulecommon.domain.Member;
@@ -14,11 +15,23 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class DemoService {
 
+    @Value("${profile-name}")
+    private String name;
+
     private final CommonDemoService commonDemoService; //주입받기 위해 롬복 사용
 
     private final MemberRepository memberRepository;
     
     public String save() {
+
+        System.out.println("name: " + name);
+
+        // 예를 들어 
+        // if(name == local) {
+        // }else if(name == beta) {
+        // }else{}
+        // 이런 식으로 profile에 따라 분기를 할 수 있다.
+        
         //Thread.currentThread().getName()는 Random값을 생성한다. 
         memberRepository.save(Member.builder()
                                     .name(Thread.currentThread().getName())
